@@ -5,31 +5,45 @@
 
 //inizianilizzo le variabili
 var bgenera = document.getElementById('verifica');
-var emailUte = document.getElementById('email').value;
+var bannulla = document.getElementById('annulla');
 
-//inizializzo l'array email
+// Creo l'array email
 var emailArray = ["ilaria@gmail.com", "giorgio@gmail.com", "mario@gmail.com", "davide@gmail.com"];
 
 
-  //controllo se e' in lista
+
   bgenera.addEventListener('click',
    function()
    {
-     for(var i = 0; i < emailArray.length; i++ ){
+     var emailUte = document.getElementById('email').value;
+     //email inserita dall'utente
+     console.log("email inserita dall'utente: ", emailUte);
+
+     var emailtrovata = false;
+     for( var i = 0; i < emailArray.length; i++ ){
 
        //visualizzo info array
        console.log("le email nell'array sono: ", emailArray[i]);
 
-       //stampa allert e' in lista
-     console.log("email inserita dall'utente: ", emailUte);
-        if(emailUte === emailArray[i] ){
-          console.log("l'email e' in lista");
-          alert("La su email e' in lista e puo' entrare");
+       //controllo se e' in lista
+         if(emailUte == emailArray[i]){
+         emailtrovata = true;
+         console.log("l'email e' in lista", emailtrovata);
+         }
         }
-        else{
-          //stampa allert la sua email non e' in lista
-           console.log("l'email NON è in lista");
-        }
-      }
+
+        //Stampo output
+        if( emailtrovata === true){
+          alert("!!!!La su email e' in lista e puo' entrare!!!!");
+        }else
+          alert("La su email NON e' in lista e  NON puo' entrare");
     }
+    );
+
+
+    bannulla.addEventListener('click',
+     function(){
+       document.getElementById('myform').reset();
+       // emailUte =""
+     }
     );
