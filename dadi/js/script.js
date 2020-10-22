@@ -12,19 +12,24 @@ var generaDadi= document.getElementById('lancio');
 generaDadi.addEventListener('click',
  function(){
    var dadoPc =  parseInt(Math.floor((Math.random()*6)+1));
-   console.log(dadoPc);
-
+   console.log("numero PC: ", dadoPc);
+   document.getElementById('nute').innerHTML = dadoPc;
 
     var dadoUte = parseInt(Math.floor((Math.random()*6)+1));
-    console.log(dadoUte);
+    console.log("numero UTE: ",dadoUte);
+    document.getElementById('npc').innerHTML = dadoUte;
 
+
+    var esito = document.getElementById('esitoscommessa')
     // CONFRONTO TRA DATI E RESTITUZIONE output
     if(dadoUte == dadoPc) {
-      alert("!!!!Ritenta avete pareggiato!!!!");
+    esito.innerHTML = ("!! Ritenta avete pareggiato !!");
     }else if(dadoUte > dadoPc) {
-      alert("!!!!HAI VINTO =) !!!!");
+      esito.innerHTML = ("!! HAI VINTO !!");
+      // alert("!!!!HAI VINTO =) !!!!");
     }else{
-      alert("!!!!HAI PERSO =( !!!!");
+      esito.innerHTML = ("!! HAI PERSO !!");
+      // alert("!!!!HAI PERSO =( !!!!");
     }
   }
 );
